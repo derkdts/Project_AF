@@ -1,22 +1,71 @@
- <head>
- <linkrel="stylesheet" href="https://raw.githubusercontent.com/derkdts/Project_AF/main/style.css">
- </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popup Example</title>
+  <style>
+.container {
+  height: 100vh;
+}
 
-<body class= "body">
-<nav>
-  <ul>
-    <li><a href="https://confluence.bankffin.kz/pages/viewpage.action?pageId=72453817">Шпаргалка</a></li>
-    <li><a href="https://confluence.bankffin.kz/pages/viewpage.action?pageId=72453826">Ссылки</a></li>
-  </ul>
-</nav>
+.popup-button {
+  width: 200px; /* Устанавливаем одинаковую ширину для всех кнопок */
+  padding: 10px 20px;
+  font-size: 16px;
+  flex: 1;
+  padding-right: 20px;
+}
+    
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 
-  <div class="num">
-    <h4>Номер кейса</h4>
-    <input type="text">
+.popup-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="popup-button">Подозреваемый</button>
+    <button class="popup-button">ФЛ попался на уловки мошенников</button>
+    <button class="popup-button">ЮЛ/ИП попался на уловки мошенников</button>
+    <button class="popup-button">Продолжение ДО</button>
+    <button class="popup-button">Алерт по Мерчанту</button>
+    <button class="popup-button">Алерт по Картам</button>
   </div>
-  <div class="c1">
-<details>
- <summary>ЮЛ/ИП попался на уловки мошенников / не согласен с переводом / сам клиент обратился / оператор выяснил при звонке</summary>
+
+  <div id="popup1" class="popup">
+    <div class="popup-content">
+      <span class="close-button">&times;</span>
+      <p>Подозреваемый - получено подтверждение от пострадавшего/другого Банка</p>
 <table border="1">
   <tr>
     <th>№ п/п</th>
@@ -25,23 +74,22 @@
   </tr>
   <tr>
     <td>1</td>
-    <td>Блокируем ИБЮЛ в SPLUNK</td>
+    <td>Вносим клиента в черный списка SPLUNK (ИИН, код клиента)</td>
     <td><input type="checkbox"></td>
-
   </tr>
   <tr>
     <td>2</td>
-    <td>Блокируем ИБЮЛ в Colvir</td>
+    <td>Блокируем карту в SPLUNK или инициируем блокировку карты</td>
     <td><input type="checkbox"></td>
   </tr>
   <tr>
     <td>3</td>
-    <td>Вносим клиента в черный списка SPLUNK (ИИН, код клиента)</td>
+    <td>Выводим счета из обслуживания в ПС в SPLUNK</td>
     <td><input type="checkbox"></td>
   </tr>
    <tr>
     <td>4</td>
-    <td>Выводим счета из обслуживания в ПС в SPLUNK</td>
+    <td>Блокируем и разблокируем мобильные приложения, чтобы клиент вновь прошел видеоверификацию.</td>
     <td><input type="checkbox"></td>
   </tr>
    <tr>
@@ -51,72 +99,43 @@
   </tr>
      <tr>
     <td>6</td>
-    <td>Останавливаем средства, которые ушли мошенникам</td>
+    <td>Если средства на счетах клиента, направляем на изучение в Департамент безопасности</td>
     <td><input type="checkbox"></td>
   </tr>
      <tr>
     <td>7</td>
-    <td>Отписываем в другой Банк, если средства туда ушли по почте</td>
-    <td><input type="checkbox"></td>
-  </tr>
-     <tr>
-    <td>8</td>
-    <td>Передаем операции в БВУ через Антифрод центр</td>
-    <td><input type="checkbox"></td>
-  </tr>
-     <tr>
-    <td>9</td>
-    <td>Добавляем карту получателя  БВУ в Черный список в Splunk через хэширование карты</td>
-    <td><input type="checkbox"></td>
-  </tr>
-     <tr>
-    <td>10</td>
-    <td>Ставим в известность Касьянова Степана, Жайлаухан Айгуль, Бердалиеву Эльмиру: <br>1) запрашиваем видео прохождения верификации, 2) запрашиваем логи</td>
-    <td><input type="checkbox"></td>
-  </tr>
-     <tr>
-    <td>11</td>
-    <td>Проверяем наличие СМС с ОТП кодом для входа в ИБЮЛ</td>
-    <td><input type="checkbox"></td>
-  </tr>
-     <tr>
-    <td>12</td>
-    <td>Звоним ЮЛ/ИП, спрашиваем:<br>
-- кто пользуется ЭЦП ключами;<br>
-- где и как хранятся ЭЦП ключи;<br>
-- кто к ним имеет доступ;   <br>
-- кто знает пароль от ЭЦП;      <br>         
-- установлен ли антивирус;<br>
-- передавали ли код из СМС;<br>
-- если видим, что была видеоверификация  - уточняем как проходил ее.<br>
-Рекомендуем: <br>
-- перевыпустить ЭЦП;<br>
-- установить лицензионный антивирус;<br>
-- не хранить ЭЦП и пароли на компьютере;<br>
-- не передавать ЭЦП, пароли, коды из СМС кому-либо;<br>
-- написать заявление на разблокировку Интернет-Банкинга после выполнения вышеуказанных действий;<br>
+    <td>Направляем данные клиента по почте на АМЛ (если еть обороты по счету)
 </td>
     <td><input type="checkbox"></td>
   </tr>
      <tr>
-    <td>13</td>
-    <td>Направляем в Департамент безопасности для проведения служебного расследования</td>
+    <td>8</td>
+    <td>Отправляем СМС о блокировке карты</td>
     <td><input type="checkbox"></td>
   </tr>
      <tr>
-    <td>14</td>
+    <td>9</td>
+    <td>Если есть подозрения на несанкционированный вход (дипфейк) в мобильные приложения, извещаем ДИБ, ДБ, опер риски</td>
+    <td><input type="checkbox"></td>
+  </tr>
+     <tr>
+    <td>10</td>
     <td>Заносим в отчет "Инциденты фрода" и сохраняем на сетевом диске</td>
     <td><input type="checkbox"></td>
   </tr>
-     <tr>
-    <td>15</td>
+   <tr>
+    <td>11</td>
     <td>Отправляем по почте в группу антифрод следующую информацию:<br> номер инцидента/прикрепляем звонки,чаты при наличии/скрин отправленного смс/занесен в ЧС/вывод из ПС</td>
     <td><input type="checkbox"></td>
   </tr>
 </table>
-</details>
-<details>
- <summary>ФЛ попался на уловки мошенников / не согласен с переводом / сам клиент обратился / оператор выяснил при звонке</summary>
+    </div>
+  </div>
+
+  <div id="popup2" class="popup">
+    <div class="popup-content">
+      <span class="close-button">&times;</span>
+      <p>ФЛ попался на уловки мошенников / не согласен с переводом / сам клиент обратился / оператор выяснил при звонке</p>
 <table border="1">
   <tr>
     <th>№ п/п</th>
@@ -215,9 +234,13 @@
     <td><input type="checkbox"></td>
   </tr>
 </table>
-</details>
-<details>
- <summary> Подозреваемый - получено подтверждение от пострадавшего/другого Банка</summary>
+    </div>
+  </div>
+
+  <div id="popup3" class="popup">
+    <div class="popup-content">
+      <span class="close-button">&times;</span>
+      <p>ЮЛ/ИП попался на уловки мошенников / не согласен с переводом / сам клиент обратился / оператор выяснил при звонке</p>
 <table border="1">
   <tr>
     <th>№ п/п</th>
@@ -226,23 +249,23 @@
   </tr>
   <tr>
     <td>1</td>
-    <td>Вносим клиента в черный списка SPLUNK (ИИН, код клиента)</td>
+    <td>Блокируем ИБЮЛ в SPLUNK</td>
     <td><input type="checkbox"></td>
 
   </tr>
   <tr>
     <td>2</td>
-    <td>Блокируем карту в SPLUNK или инициируем блокировку карты</td>
+    <td>Блокируем ИБЮЛ в Colvir</td>
     <td><input type="checkbox"></td>
   </tr>
   <tr>
     <td>3</td>
-    <td>Выводим счета из обслуживания в ПС в SPLUNK</td>
+    <td>Вносим клиента в черный списка SPLUNK (ИИН, код клиента)</td>
     <td><input type="checkbox"></td>
   </tr>
    <tr>
     <td>4</td>
-    <td>Блокируем и разблокируем мобильные приложения, чтобы клиент вновь прошел видеоверификацию.</td>
+    <td>Выводим счета из обслуживания в ПС в SPLUNK</td>
     <td><input type="checkbox"></td>
   </tr>
    <tr>
@@ -252,39 +275,121 @@
   </tr>
      <tr>
     <td>6</td>
-    <td>Если средства на счетах клиента, направляем на изучение в Департамент безопасности</td>
+    <td>Останавливаем средства, которые ушли мошенникам</td>
     <td><input type="checkbox"></td>
   </tr>
      <tr>
     <td>7</td>
-    <td>Направляем данные клиента по почте на АМЛ (если еть обороты по счету)
-</td>
+    <td>Отписываем в другой Банк, если средства туда ушли по почте</td>
     <td><input type="checkbox"></td>
   </tr>
      <tr>
     <td>8</td>
-    <td>Отправляем СМС о блокировке карты</td>
+    <td>Передаем операции в БВУ через Антифрод центр</td>
     <td><input type="checkbox"></td>
   </tr>
      <tr>
     <td>9</td>
-    <td>Если есть подозрения на несанкционированный вход (дипфейк) в мобильные приложения, извещаем ДИБ, ДБ, опер риски</td>
+    <td>Добавляем карту получателя  БВУ в Черный список в Splunk через хэширование карты</td>
     <td><input type="checkbox"></td>
   </tr>
      <tr>
     <td>10</td>
+    <td>Ставим в известность Касьянова Степана, Жайлаухан Айгуль, Бердалиеву Эльмиру: <br>1) запрашиваем видео прохождения верификации, 2) запрашиваем логи</td>
+    <td><input type="checkbox"></td>
+  </tr>
+     <tr>
+    <td>11</td>
+    <td>Проверяем наличие СМС с ОТП кодом для входа в ИБЮЛ</td>
+    <td><input type="checkbox"></td>
+  </tr>
+     <tr>
+    <td>12</td>
+    <td>Звоним ЮЛ/ИП, спрашиваем:<br>
+- кто пользуется ЭЦП ключами;<br>
+- где и как хранятся ЭЦП ключи;<br>
+- кто к ним имеет доступ;   <br>
+- кто знает пароль от ЭЦП;      <br>         
+- установлен ли антивирус;<br>
+- передавали ли код из СМС;<br>
+- если видим, что была видеоверификация  - уточняем как проходил ее.<br>
+Рекомендуем: <br>
+- перевыпустить ЭЦП;<br>
+- установить лицензионный антивирус;<br>
+- не хранить ЭЦП и пароли на компьютере;<br>
+- не передавать ЭЦП, пароли, коды из СМС кому-либо;<br>
+- написать заявление на разблокировку Интернет-Банкинга после выполнения вышеуказанных действий;<br>
+</td>
+    <td><input type="checkbox"></td>
+  </tr>
+     <tr>
+    <td>13</td>
+    <td>Направляем в Департамент безопасности для проведения служебного расследования</td>
+    <td><input type="checkbox"></td>
+  </tr>
+     <tr>
+    <td>14</td>
     <td>Заносим в отчет "Инциденты фрода" и сохраняем на сетевом диске</td>
     <td><input type="checkbox"></td>
   </tr>
-   <tr>
-    <td>11</td>
+     <tr>
+    <td>15</td>
     <td>Отправляем по почте в группу антифрод следующую информацию:<br> номер инцидента/прикрепляем звонки,чаты при наличии/скрин отправленного смс/занесен в ЧС/вывод из ПС</td>
     <td><input type="checkbox"></td>
   </tr>
 </table>
-</details>
-<details>
- <summary> алерт от SVFE@bankffin.kz по Мерчанту / SmartVista-FrontEnd FM</summary>
+    </div>
+  </div>
+
+    <div id="popup4" class="popup">
+    <div class="popup-content">
+      <span class="close-button">&times;</span>
+      <p>Получение решения от AML касательно продолжения деловых отношений с клиентом:</p>
+<table border="1">
+  <tr>
+    <th>№ п/п</th>
+    <th>Действие</th>
+    <th>Выполнение</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Выводим клиента из черного списка SPLUNK (ИИН, код клиента)</td>
+    <td><input type="checkbox"></td>
+
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Переносим клиента в серый список SPLUNK (ИИН, код клиента)</td>
+    <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Инициируем разблокировку либо разблокируем карты.</td>
+    <td><input type="checkbox"></td>
+  </tr>
+    <tr>
+    <td>4</td>
+    <td>Вводим счета в обслуживание в ПС в SPLUNK</td>
+    <td><input type="checkbox"></td>
+  </tr>
+      <tr>
+    <td>5</td>
+    <td>Удаляем из Списка всех заблокированных</td>
+    <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Указываем дату разблокироваки в списке Warm в отчетах Инцидента</td>
+    <td><input type="checkbox"></td>
+  </tr>
+</table>
+    </div>
+  </div>
+
+      <div id="popup5" class="popup">
+    <div class="popup-content">
+      <span class="close-button">&times;</span>
+      <p> алерт от SVFE@bankffin.kz по Мерчанту / SmartVista-FrontEnd FM</p>
 <table border="1">
   <tr>
     <th>№ п/п</th>
@@ -358,9 +463,13 @@
     <td><input type="checkbox"></td>
   </tr>
 </table>
-</details>
-<details>
- <summary> алерт от SVFE@bankffin.kz по Картам / SmartVista-FrontEnd FM</summary>
+    </div>
+  </div>
+
+      <div id="popup6" class="popup">
+    <div class="popup-content">
+      <span class="close-button">&times;</span>
+      <p> алерт от SVFE@bankffin.kz по Картам / SmartVista-FrontEnd FM</p>
 <table border="1">
   <tr>
     <th>№ п/п</th>
@@ -389,47 +498,35 @@
     <td><input type="checkbox"></td>
   </tr>
 </table>
-</details>
-<details>
- <summary>Получение решения от AML касательно продолжения деловых отношений с клиентом:</summary>
-<table border="1">
-  <tr>
-    <th>№ п/п</th>
-    <th>Действие</th>
-    <th>Выполнение</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Выводим клиента из черного списка SPLUNK (ИИН, код клиента)</td>
-    <td><input type="checkbox"></td>
-
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Переносим клиента в серый список SPLUNK (ИИН, код клиента)</td>
-    <td><input type="checkbox"></td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Инициируем разблокировку либо разблокируем карты.</td>
-    <td><input type="checkbox"></td>
-  </tr>
-    <tr>
-    <td>4</td>
-    <td>Вводим счета в обслуживание в ПС в SPLUNK</td>
-    <td><input type="checkbox"></td>
-  </tr>
-      <tr>
-    <td>5</td>
-    <td>Удаляем из Списка всех заблокированных</td>
-    <td><input type="checkbox"></td>
-  </tr>
-  <tr>
-    <td>6</td>
-    <td>Указываем дату разблокироваки в списке Warm в отчетах Инцидента</td>
-    <td><input type="checkbox"></td>
-  </tr>
-</table>
-</details>
+    </div>
   </div>
+  
+  <script>
+const popupButtons = document.getElementsByClassName('popup-button');
+const popups = document.getElementsByClassName('popup');
+const closeButtons = document.getElementsByClassName('close-button');
+
+for (let i = 0; i < popupButtons.length; i++) {
+  popupButtons[i].addEventListener('click', () => {
+    popups[i].style.display = 'block';
+  });
+}
+
+for (let i = 0; i < closeButtons.length; i++) {
+  closeButtons[i].addEventListener('click', () => {
+    popups[i].style.display = 'none';
+  });
+}
+
+window.addEventListener('click', (event) => {
+  for (let i = 0; i < popups.length; i++) {
+    if (event.target == popups[i]) {
+      popups[i].style.display = 'none';
+    }
+  }
+});
+
+    
+  </script>
 </body>
+</html>
