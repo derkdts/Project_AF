@@ -5,66 +5,157 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Popup Example</title>
   <style>
-.container {
-  height: 100vh;
-}
 
-.popup-button {
-  width: 200px; /* Устанавливаем одинаковую ширину для всех кнопок */
-  padding: 10px 20px;
-  font-size: 16px;
-  flex: 1;
-  padding-right: 20px;
-}
-    
-.popup {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
 
-.popup-content {
-  background-color: #fefefe;
-  margin: 15% auto;
+.header {
+  background-color: #195230;
+  color: #fff;
   padding: 20px;
-  border: 1px solid #888;
+  text-align: center;
 }
 
-.close-button {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
-.close-button:hover,
-.close-button:focus {
-  color: black;
+.nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.nav-link {
+  color: #fff;
   text-decoration: none;
-  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #ccc;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #87debd;
+
+}
+
+body {
+ background-color: #fafcfd;
+}
+.container {
+  margin: 0 auto;
+  padding-top: 125px;
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  padding-left: 100px;
+}
+
+.button {
+  width: 200px;
+  height: 50px;
+  font-size: 16px;
+  background-color: #87debd;
+  border: 0;
 }
     
+.button:hover {
+ color: #67b362;
+ text-decoration: none;
+ cursor: pointer;
+}
+
+    .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px;
+}
+
+
+
+.hidden-text {
+  display: none;
+  background-color: #D0F0C0;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: -420px;
+  margin-left: 250px;
+  width: 1560px;
+}
+
+.show {
+  display: block;
+}
+    
+table {
+  width: 90%;
+}
+
+.info-text {
+  color: white;
+  font-style: italic;
+  background-color: #195230;
+  padding: 10px;
+  border-radius: 5px;
+  width: 99%;
+}
+
   </style>
 </head>
 <body>
+
+<header class="header">
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="#" class="nav-link">Главная</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://confluence.bankffin.kz/pages/viewpage.action?pageId=72453826" class="nav-link">Ссылки</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://confluence.bankffin.kz/pages/viewpage.action?pageId=72453817" class="nav-link">Шпаргалка</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="header-content">
+    <h1 class="header-title">Чек-лист</h1>
+  </div>
+</header>
+
+
   <div class="container">
-    <button class="popup-button">Подозреваемый</button>
-    <button class="popup-button">ФЛ попался на уловки мошенников</button>
-    <button class="popup-button">ЮЛ/ИП попался на уловки мошенников</button>
-    <button class="popup-button">Продолжение ДО</button>
-    <button class="popup-button">Алерт по Мерчанту</button>
-    <button class="popup-button">Алерт по Картам</button>
+    <button class="button">Подозреваемый</button>
+    <button class="button">ФЛ попался на уловки мошенников</button>
+    <button class="button">ЮЛ/ИП попался на уловки мошенников</button>
+    <button class="button">Продолжение ДО</button>
+    <button class="button">Алерт по Мерчанту</button>
+    <button class="button">Алерт по Картам</button>
+    <button id="resetButton" class="button">Обновить</button>
   </div>
 
-  <div id="popup1" class="popup">
-    <div class="popup-content">
-      <span class="close-button">&times;</span>
+<div class="info-text">Click the button to see the hidden text.</div>
+
+  <div id="popup1" class="hidden-text">
+    <div class="show">
       <p>Подозреваемый - получено подтверждение от пострадавшего/другого Банка</p>
 <table border="1">
   <tr>
@@ -132,9 +223,8 @@
     </div>
   </div>
 
-  <div id="popup2" class="popup">
-    <div class="popup-content">
-      <span class="close-button">&times;</span>
+  <div id="popup2" class="hidden-text">
+    <div class="show">
       <p>ФЛ попался на уловки мошенников / не согласен с переводом / сам клиент обратился / оператор выяснил при звонке</p>
 <table border="1">
   <tr>
@@ -237,9 +327,8 @@
     </div>
   </div>
 
-  <div id="popup3" class="popup">
-    <div class="popup-content">
-      <span class="close-button">&times;</span>
+  <div id="popup3" class="hidden-text">
+    <div class="show">
       <p>ЮЛ/ИП попался на уловки мошенников / не согласен с переводом / сам клиент обратился / оператор выяснил при звонке</p>
 <table border="1">
   <tr>
@@ -341,9 +430,8 @@
     </div>
   </div>
 
-    <div id="popup4" class="popup">
-    <div class="popup-content">
-      <span class="close-button">&times;</span>
+    <div id="popup4" class="hidden-text">
+    <div class="show">
       <p>Получение решения от AML касательно продолжения деловых отношений с клиентом:</p>
 <table border="1">
   <tr>
@@ -386,9 +474,8 @@
     </div>
   </div>
 
-      <div id="popup5" class="popup">
-    <div class="popup-content">
-      <span class="close-button">&times;</span>
+      <div id="popup5" class="hidden-text">
+    <div class="show">
       <p> алерт от SVFE@bankffin.kz по Мерчанту / SmartVista-FrontEnd FM</p>
 <table border="1">
   <tr>
@@ -466,9 +553,8 @@
     </div>
   </div>
 
-      <div id="popup6" class="popup">
-    <div class="popup-content">
-      <span class="close-button">&times;</span>
+      <div id="popup6" class="hidden-text">
+    <div class="show">
       <p> алерт от SVFE@bankffin.kz по Картам / SmartVista-FrontEnd FM</p>
 <table border="1">
   <tr>
@@ -500,32 +586,30 @@
 </table>
     </div>
   </div>
-  
+ 
   <script>
-const popupButtons = document.getElementsByClassName('popup-button');
-const popups = document.getElementsByClassName('popup');
-const closeButtons = document.getElementsByClassName('close-button');
+const buttons = document.querySelectorAll('.button');
+const hiddenTexts = document.querySelectorAll('.hidden-text');
+const infoTexts = document.querySelectorAll('.info-text');
 
-for (let i = 0; i < popupButtons.length; i++) {
-  popupButtons[i].addEventListener('click', () => {
-    popups[i].style.display = 'block';
+buttons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    // Закрываем все скрытые блоки
+    hiddenTexts.forEach(text => text.classList.remove('show'));
+    
+    // Показываем нужный скрытый блок
+    hiddenTexts[index].classList.add('show');
+    
+    // Скрываем информативный текст на месте скрытого блока
+    infoTexts[index].style.display = 'none';
   });
-}
-
-for (let i = 0; i < closeButtons.length; i++) {
-  closeButtons[i].addEventListener('click', () => {
-    popups[i].style.display = 'none';
-  });
-}
-
-window.addEventListener('click', (event) => {
-  for (let i = 0; i < popups.length; i++) {
-    if (event.target == popups[i]) {
-      popups[i].style.display = 'none';
-    }
-  }
 });
 
+const resetButton = document.getElementById('resetButton');
+
+resetButton.addEventListener('click', () => {
+  window.location.reload();
+});
     
   </script>
 </body>
