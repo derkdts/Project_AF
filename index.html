@@ -12,12 +12,11 @@
   color: #fff;
   padding: 20px;
   text-align: center;
-  width: 100%;
 }
 
 .nav {
   list-style: none;
-  margin: 0;
+  /*margin: 0;*/
   padding: 0;
   display: flex;
   justify-content: space-between;
@@ -62,7 +61,7 @@ body {
 }
 .container {
   margin: 0 auto;
-  padding-top: 125px;
+  padding-top: 150px;
   display: grid;
   grid-template-columns: repeat(1, auto);
   padding-left: 100px;
@@ -78,7 +77,9 @@ body {
 
 
  .but {
-  margin-left: 520px;
+  float: right;
+  margin-right: 25px;
+  margin-top: 155px;
   width: 100px;
   height: 20px;
   font-size: 16px;
@@ -97,7 +98,7 @@ body {
   align-items: flex-start;
   gap: 10px;
   padding: 20px;
-  margin-top: -15px;
+  margin-top: 10px;
 }
 
 
@@ -105,12 +106,12 @@ body {
 .hidden-text {
   display: none;
   background-color: #E0FFFF;
-  padding: 10px;
+  padding-left: 15px;
   border-radius: 5px;
-  margin-top: -520px;
+  margin-top: -540px;
   margin-left: 250px;
-  width: 650px;
-  height: 400px;
+  margin-right: 140px;
+  height: 600px;
   overflow-y: scroll;
   border: 5px solid green;
 }
@@ -166,6 +167,8 @@ table {
   </div>
 </header>
 
+<button id="resetButton" class="but">Обновить</button>
+
   <div class="container">
     <button class="button">Подозреваемый</button>
     <button class="button">ФЛ попался на уловки мошенников</button>
@@ -180,13 +183,13 @@ table {
 
   <div id="popup1" class="hidden-text">
     <div class="show">
-      <p>Подозреваемый - получено подтверждение от пострадавшего/другого Банка</p>
-      <button id="resetButton" class="but">Обновить</button>
+      <p><b>Подозреваемый - получено подтверждение от пострадавшего/другого Банка</b></p>
+      
 <table>
   <tr>
-    <th>№ п/п</th>
+    <th>№</th>
     <th>Действие</th>
-    <th>Выполнение</th>
+    <th>Готово</th>
   </tr>
   <tr>
     <td>1</td>
@@ -250,11 +253,11 @@ table {
 
   <div id="popup2" class="hidden-text">
     <div class="show">
-      <p>ФЛ попался на уловки мошенников / не согласен с переводом / сам клиент обратился / оператор выяснил при звонке</p>
-      <button id="resetButton" class="but">Обновить</button>
+      <p><b>ФЛ попался на уловки мошенников / не согласен с переводом / сам клиент обратился / оператор выяснил при звонке</b></p>
+     
 <table>
   <tr>
-    <th>№ п/п</th>
+    <th>№</th>
     <th>Действие</th>
     <th>Выполнение</th>
   </tr>
@@ -355,11 +358,11 @@ table {
 
   <div id="popup3" class="hidden-text">
     <div class="show">
-      <p>ЮЛ/ИП попался на уловки мошенников / не согласен с переводом / сам клиент обратился / оператор выяснил при звонке</p>
-      <button id="resetButton" class="but">Обновить</button>
+      <p><b>ЮЛ/ИП попался на уловки мошенников / не согласен с переводом / сам клиент обратился / оператор выяснил при звонке</b></p>
+      
 <table>
   <tr>
-    <th>№ п/п</th>
+    <th>№</th>
     <th>Действие</th>
     <th>Выполнение</th>
   </tr>
@@ -459,11 +462,11 @@ table {
 
     <div id="popup4" class="hidden-text">
     <div class="show">
-      <p>Получение решения от AML касательно продолжения деловых отношений с клиентом:</p>
-      <button id="resetButton" class="but">Обновить</button>
+      <p><b>Получение решения от AML касательно продолжения деловых отношений с клиентом:</b></p>
+      
 <table>
   <tr>
-    <th>№ п/п</th>
+    <th>№</th>
     <th>Действие</th>
     <th>Выполнение</th>
   </tr>
@@ -504,11 +507,11 @@ table {
 
       <div id="popup5" class="hidden-text">
     <div class="show">
-      <p> алерт от SVFE@bankffin.kz по Мерчанту / SmartVista-FrontEnd FM</p>
-      <button id="resetButton" class="but">Обновить</button>
+      <p><b> алерт от SVFE@bankffin.kz по Мерчанту / SmartVista-FrontEnd FM</b></p>
+      
 <table>
   <tr>
-    <th>№ п/п</th>
+    <th>№</th>
     <th>Действие</th>
     <th>Выполнение</th>
   </tr>
@@ -584,11 +587,11 @@ table {
 
       <div id="popup6" class="hidden-text">
     <div class="show">
-      <p> алерт от SVFE@bankffin.kz по Картам / SmartVista-FrontEnd FM</p>
-      <button id="resetButton" class="but">Обновить</button>
+      <p><b> алерт от SVFE@bankffin.kz по Картам / SmartVista-FrontEnd FM</b></p>
+      
 <table>
   <tr>
-    <th>№ п/п</th>
+    <th>№</th>
     <th>Действие</th>
     <th>Выполнение</th>
   </tr>
@@ -620,11 +623,11 @@ table {
   
    <div id="popup7" class="hidden-text">
     <div class="show">
-      <p>Списки мошенников АФЦ (черный список)</p>
-      <button id="resetButton" class="but">Обновить</button>
+      <p><b>Списки мошенников АФЦ (черный список)</b></p>
+      
 <table>
   <tr>
-    <th>№ п/п</th>
+    <th>№</th>
     <th>Действие</th>
     <th>Выполнение</th>
   </tr>
@@ -671,11 +674,11 @@ table {
  
  <div id="popup8" class="hidden-text">
     <div class="show">
-      <p>Списки подозреваемых (серый список)</p>
-      <button id="resetButton" class="but">Обновить</button>
+      <p><b>Списки подозреваемых (серый список)</b></p>
+      
 <table>
   <tr>
-    <th>№ п/п</th>
+    <th>№</th>
     <th>Действие</th>
     <th>Выполнение</th>
   </tr>
@@ -711,11 +714,11 @@ table {
  
   <div id="popup9" class="hidden-text">
     <div class="show">
-      <p>Для отправки в Антифрод-центр:</p>
-      <button id="resetButton" class="but">Обновить</button>
+      <p><b>Для отправки в Антифрод-центр:</b></p>
+      
 <table>
   <tr>
-    <th>№ п/п</th>
+    <th>№</th>
     <th>Действие</th>
     <th>Выполнение</th>
   </tr>
