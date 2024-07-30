@@ -75,17 +75,18 @@ body {
   border: 0;
 }
 
-
- .but {
-  float: right;
-  margin-right: 25px;
+ .rtbtn {
   margin-top: 155px;
-  width: 100px;
-  height: 20px;
-  font-size: 16px;
-  background-color: #7FFFD4;
-  border: 0;
- }
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  float: right;
+}
+
+
+ p {
+  float: right;
+}
+
 .button:hover {
  color: #67b362;
  text-decoration: none;
@@ -167,7 +168,10 @@ table {
   </div>
 </header>
 
-<button id="resetButton" class="but">Обновить</button>
+<div class="rtbtn">
+<button id="calculate" class="but">Посчитать</button>
+<button id="reset" class="but">Сбросить</button>
+</div>
 
   <div class="container">
     <button class="button">Подозреваемый</button>
@@ -194,58 +198,58 @@ table {
   <tr>
     <td>1</td>
     <td>Вносим клиента в черный списка SPLUNK (ИИН, код клиента)</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>2</td>
     <td>Блокируем карту в SPLUNK или инициируем блокировку карты</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>3</td>
     <td>Выводим счета из обслуживания в ПС в SPLUNK</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
    <tr>
     <td>4</td>
     <td>Блокируем и разблокируем мобильные приложения, чтобы клиент вновь прошел видеоверификацию.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
    <tr>
     <td>5</td>
     <td>Отклоняем операцию как Закрыт.Мошенничество</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>6</td>
     <td>Если средства на счетах клиента, направляем на изучение в Департамент безопасности</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>7</td>
     <td>Направляем данные клиента по почте на АМЛ (если еть обороты по счету)
 </td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>8</td>
     <td>Отправляем СМС о блокировке карты</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>9</td>
     <td>Если есть подозрения на несанкционированный вход (дипфейк) в мобильные приложения, извещаем ДИБ, ДБ, опер риски</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>10</td>
     <td>Заносим в отчет "Инциденты фрода" и сохраняем на сетевом диске</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
    <tr>
     <td>11</td>
     <td>Отправляем по почте в группу антифрод следующую информацию:<br> номер инцидента/прикрепляем звонки,чаты при наличии/скрин отправленного смс/занесен в ЧС/вывод из ПС</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
 </table>
     </div>
@@ -264,54 +268,54 @@ table {
   <tr>
     <td>1</td>
     <td>Вносим клиента в черный списка SPLUNK (ИИН, код клиента)</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
 
   </tr>
   <tr>
     <td>2</td>
     <td>Блокируем карту в SPLUNK или инициируем блокировку карты</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>3</td>
     <td>Выводим счета из обслуживания в ПС в SPLUNK</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
    <tr>
     <td>4</td>
     <td>Блокируем и разблокируем мобильные приложения, чтобы клиент вновь прошел видеоверификацию.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
    <tr>
     <td>5</td>
     <td>Отклоняем операцию как Закрыт.Мошенничество</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>6</td>
     <td>Останавливаем средства, которые ушли мошенникам</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>7</td>
     <td>Отписываем в другой Банк, если средства туда ушли и добавляем карту получателя  БВУ в Черный список в Splunk через хэширование карты
 </td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>8</td>
     <td>Передаем операции в БВУ через Антифрод центр</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>9</td>
     <td>Проверяем наличие отправленных СМС с ОТП кодом по операциям по карте</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>10</td>
     <td>Проверяем прохождение видеоверификации</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>11</td>
@@ -325,32 +329,32 @@ table {
 - перевыпустить карту;<br>
 - подойти в филиал и расписать, что произошло."<br>
 </td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>12</td>
     <td>Отправляем СМС о блокировке карты</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>13</td>
     <td>Если клиент VIP/Priority, отправляем в Департамент безопасности для проведения служебного расследования</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>14</td>
     <td>Если есть подозрения на несанкционированный вход в мобильные приложения, извещаем ДИБ, ДБ, опер риски</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>15</td>
     <td>Заносим в отчет "Инциденты фрода" и сохраняем на сетевом диске</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
    <tr>
     <td>16</td>
     <td>Отправляем по почте в группу антифрод следующую информацию:<br> номер инцидента/прикрепляем звонки,чаты при наличии/скрин отправленного смс/занесен в ЧС/вывод из ПС</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
 </table>
     </div>
@@ -369,58 +373,58 @@ table {
   <tr>
     <td>1</td>
     <td>Блокируем ИБЮЛ в SPLUNK</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
 
   </tr>
   <tr>
     <td>2</td>
     <td>Блокируем ИБЮЛ в Colvir</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>3</td>
     <td>Вносим клиента в черный списка SPLUNK (ИИН, код клиента)</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
    <tr>
     <td>4</td>
     <td>Выводим счета из обслуживания в ПС в SPLUNK</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
    <tr>
     <td>5</td>
     <td>Отклоняем операцию как Закрыт.Мошенничество</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>6</td>
     <td>Останавливаем средства, которые ушли мошенникам</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>7</td>
     <td>Отписываем в другой Банк, если средства туда ушли по почте</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>8</td>
     <td>Передаем операции в БВУ через Антифрод центр</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>9</td>
     <td>Добавляем карту получателя  БВУ в Черный список в Splunk через хэширование карты</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>10</td>
     <td>Ставим в известность Касьянова Степана, Жайлаухан Айгуль, Бердалиеву Эльмиру: <br>1) запрашиваем видео прохождения верификации, 2) запрашиваем логи</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>11</td>
     <td>Проверяем наличие СМС с ОТП кодом для входа в ИБЮЛ</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>12</td>
@@ -439,22 +443,22 @@ table {
 - не передавать ЭЦП, пароли, коды из СМС кому-либо;<br>
 - написать заявление на разблокировку Интернет-Банкинга после выполнения вышеуказанных действий;<br>
 </td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>13</td>
     <td>Направляем в Департамент безопасности для проведения служебного расследования</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>14</td>
     <td>Заносим в отчет "Инциденты фрода" и сохраняем на сетевом диске</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>15</td>
     <td>Отправляем по почте в группу антифрод следующую информацию:<br> номер инцидента/прикрепляем звонки,чаты при наличии/скрин отправленного смс/занесен в ЧС/вывод из ПС</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
 </table>
     </div>
@@ -473,33 +477,33 @@ table {
   <tr>
     <td>1</td>
     <td>Выводим клиента из черного списка SPLUNK (ИИН, код клиента)</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
 
   </tr>
   <tr>
     <td>2</td>
     <td>Переносим клиента в серый список SPLUNK (ИИН, код клиента)</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>3</td>
     <td>Инициируем разблокировку либо разблокируем карты.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
     <tr>
     <td>4</td>
     <td>Вводим счета в обслуживание в ПС в SPLUNK</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
       <tr>
     <td>5</td>
     <td>Удаляем из Списка всех заблокированных</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>6</td>
     <td>Указываем дату разблокироваки в списке Warm в отчетах Инцидента</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
 </table>
     </div>
@@ -518,28 +522,28 @@ table {
   <tr>
     <td>1</td>
     <td>Посмотреть на операции по этому мерчанту за последние сутки-двое. В сообщении указан БИН эквайра, ID merchant, назчание мерча и кол-во операций за последние 5 минут. </td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
 
   </tr>
   <tr>
     <td>2</td>
     <td>Обратить внимание на ответы – если много 871 (Incorrect CVV2), 861 (Expiration dates in database and on card not equal) по разным картам – это красный флаг. </td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>3</td>
     <td>Если операции по нашим похожим БИНам, например, первые 12 цифр в большинстве случаев совпадают – это красный флаг</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
    <tr>
     <td>4</td>
     <td>Если мерчант необычный, редко используемый, название из нескольких символов (* или другие)– это красный флаг. </td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
    <tr>
     <td>5</td>
     <td>Дозваниваемся до 3 клиентов с успешным прохождением операции, и по 3 клиентам, у кого были неуспешные операции</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>6</td>
@@ -551,7 +555,7 @@ table {
 -уведомляем аналитиков<br>
 - отправляем СМС о блокировке карты"<br>
 </td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>7</td>
@@ -562,7 +566,7 @@ table {
 - отправляем СМС о блокировке карты "<br>
 
 </td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>8</td>
@@ -573,13 +577,13 @@ table {
 -Отправляем СМС клиентам о блокировке карты<br>
 -Уведомляем Управление логистики и  выпуска карт о перевыпуске за счет Банка"<br>
 </td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
      <tr>
     <td>9</td>
     <td>Если у мерчанта проходят и нормальные операции и подозрительные, аналитик направляет на карточный процессинг, чтобы добавили 3DS на операцию Account Verification, Tokenisation
 </td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
 </table>
     </div>
@@ -598,13 +602,13 @@ table {
   <tr>
     <td>1</td>
     <td>Посмотреть на операции по этой карте за последние сутки-двое.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
 
   </tr>
   <tr>
     <td>2</td>
     <td>Созвониться с клиентом для подтверждения операций</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>3</td>
@@ -614,7 +618,7 @@ table {
 -уведомляем аналитиков<br>
 - отправляем СМС о блокировке карты"<br>
 </td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
 </table>
     </div>
@@ -634,38 +638,38 @@ table {
   <tr>
     <td>1</td>
     <td>Блокируем МП.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
 
   </tr>
   <tr>
     <td>2</td>
     <td>Блокируем карты WARM.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>3</td>
     <td>Если есть деньги на счету, счет выводим из ПС.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>4</td>
     <td>Отправляем в AML.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>5</td>
     <td>Отправляем СМС.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
    <tr>
     <td>6</td>
     <td>добавляем в черный список SPLUNK - в комментариях указать, что это список мошенников АЦ - операцию отправляем в Антифрод центр.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
    <tr>
     <td>7</td>
     <td>Если есть деньги - направляете запрос в отдел аналитики, чтобы ребята проанализировали откуда средства для возможности возврата.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   
 </table>
@@ -685,28 +689,28 @@ table {
   <tr>
     <td>1</td>
     <td>Блокируем карты WARM.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
 
   </tr>
   <tr>
     <td>2</td>
     <td>Если есть деньги на счету, счет выводим из ПС.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>3</td>
     <td>Если есть обороты, отправляем в AML.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>4</td>
     <td>Отправляем СМС.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
    <tr>
     <td>5</td>
     <td>Добавляем в серый список SPLUNK- комментарий список подозреваемых АЦ (операцию не пропускаем  - направляем в Антифрод центр).</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>  
 </table>
     </div>
@@ -725,34 +729,34 @@ table {
   <tr>
     <td>1</td>
     <td>Принимаем обращение по мошенничеству по переводам от клиентов (устное и письменное).</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
 
   </tr>
   <tr>
     <td>2</td>
     <td>Созваниваемся с клиентом, и выясняем всю схему мошенничества.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>3</td>
     <td>Если мошенничество подтверждается, направляем клиента в филиал, чтобы он написал заявление либо если клиент зарубежом, пусть напишет заявление и прикрепит его через чат.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
   <tr>
     <td>4</td>
     <td>Блокируем всех, останавливаем средства.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>
    <tr>
     <td>5</td>
     <td>Отправляем в Антифрод-центр.</td>
-    <td><input type="checkbox"></td>
+    <td><input type="checkbox" class="checkbox"></td>
   </tr>  
 </table>
     </div>
   </div>
   
-  
+<p id="result"></p>
   
   <script>
 const buttons = document.querySelectorAll('.button');
@@ -772,12 +776,23 @@ buttons.forEach((button, index) => {
   });
 });
 
-const resetButton = document.getElementById('resetButton');
-
-resetButton.addEventListener('click', () => {
-  window.location.reload();
-});
     
+
+        document.getElementById('calculate').addEventListener('click', function() {
+            const checkboxes = document.querySelectorAll('.checkbox:checked');
+            const count = checkboxes.length;
+            const message = count > 0 
+                ? `Количество выбранных: ${count}` 
+                : 'Нет данных.';
+            document.getElementById('result').innerText = message;
+        });
+
+        document.getElementById('reset').addEventListener('click', function() {
+            const checkboxes = document.querySelectorAll('.checkbox');
+            checkboxes.forEach(checkbox => checkbox.checked = false);
+            document.getElementById('result').innerText = '';
+        });
+
   </script>
 </body>
 </html>
